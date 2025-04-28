@@ -51,3 +51,6 @@ Web.Release.config
 
 # dotenv environment files
 .env
+
+*.mdf
+*.ldf
