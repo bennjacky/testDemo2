@@ -1,0 +1,53 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build Results
+bin/
+obj/
+
+# NuGet Packages
+packages/
+*.nupkg
+
+# IIS Express
+.vsconfig
+*.vspscc
+*.vssscc
+
+# ASP.NET Temporary Files
+App_Data/Logs/
+App_Data/Temp/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# DotCover
+.idea/
+*.dotCover
+
+# Publish Profiles
+Properties/PublishProfiles/
+
+# Others
+*.dbmdl
+*.bak
+*.backup
+*.log
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Rider
+.idea/
+
+# Auto-generated Web.config transforms
+Web.Debug.config
+Web.Release.config
+
+# dotenv environment files
+.env
