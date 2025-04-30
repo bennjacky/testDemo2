@@ -10,5 +10,18 @@ namespace Demo2.Controllers
 
         public ActionResult Index() => View(_service.GetAll());
 
+        public ActionResult Create() => View();
+
+        [HttpPost]
+        public ActionResult Create(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                _service.Add(product);
+                return RedirectToAction("Index");
+            }
+            return View(product);
+        }
+
     }
 }

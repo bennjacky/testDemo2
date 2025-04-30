@@ -16,7 +16,8 @@ namespace Demo2.Repositories
 
         public IEnumerable<Product> GetAll() =>
             new SqlConnection(_connStr).Query<Product>("SELECT * FROM Produs");
-
+        public void Add(Product product) =>
+            new SqlConnection(_connStr).Execute("INSERT INTO Produs (Name, Price) VALUES (@Name, @Price)", product);
 
     }
 }
