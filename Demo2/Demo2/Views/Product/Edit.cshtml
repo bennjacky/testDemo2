@@ -1,0 +1,27 @@
+﻿@model Demo2.Models.Product
+
+@{
+    ViewBag.Title = "編輯商品";
+}
+
+<h2>編輯商品</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.Price, new { @class = "form-control", type = "number", step = "0.01" })
+        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">儲存變更</button>
+    @Html.ActionLink("返回列表", "Index", null, new { @class = "btn btn-secondary ml-2" })
+}

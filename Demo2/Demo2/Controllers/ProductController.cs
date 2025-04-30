@@ -22,6 +22,18 @@ namespace Demo2.Controllers
             }
             return View(product);
         }
+        public ActionResult Edit(int id) => View(_service.GetById(id));
+
+        [HttpPost]
+        public ActionResult Edit(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                _service.Update(product);
+                return RedirectToAction("Index");
+            }
+            return View(product);
+        }
 
     }
 }
