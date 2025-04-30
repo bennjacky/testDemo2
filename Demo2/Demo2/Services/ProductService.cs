@@ -19,4 +19,3 @@ namespace Demo2.Services
         public void Delete(int id) => _repo.Delete(id);
     }
 }
-}
