@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Dapper;
+using Demo2.Models;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -7,5 +11,12 @@ namespace Demo2.Repositories
 {
     public class ProductRepository
     {
+
+        private readonly string _connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+        public IEnumerable<Product> GetAll() =>
+            new SqlConnection(_connStr).Query<Product>("SELECT * FROM Produs");
+
+
     }
 }
