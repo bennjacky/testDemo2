@@ -6,26 +6,35 @@
     <p>
         @Html.ActionLink("新增商品", "Create", null, new { @class = "btn btn-success" })
     </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>名稱</th>
-                <th>價格</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <h2>商品清單</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">目前尚無資料，請新增一筆。</div>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@item.Name</td>
-                    <td>@item.Price.ToString("C")</td>
-                    <td>
-                        @Html.ActionLink("編輯", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" }) |
-                        @Html.ActionLink("刪除", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
-                    </td>
+                    <th>名稱</th>
+                    <th>價格</th>
+                    <th>操作</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Price.ToString("C")</td>
+                        <td>
+                            @Html.ActionLink("編輯", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" }) |
+                            @Html.ActionLink("刪除", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 </main>
