@@ -34,6 +34,10 @@ namespace Demo2.Controllers
             }
             return View(product);
         }
-
+        public ActionResult Delete(int id)
+        {
+            _service.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

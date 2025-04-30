@@ -22,5 +22,7 @@ namespace Demo2.Repositories
             new SqlConnection(_connStr).QueryFirstOrDefault<Product>("SELECT * FROM Produs WHERE Id = @Id", new { Id = id });
         public void Update(Product product) =>
             new SqlConnection(_connStr).Execute("UPDATE Produs SET Name = @Name, Price = @Price WHERE Id = @Id", product);
+        public void Delete(int id) =>
+          new SqlConnection(_connStr).Execute("DELETE FROM Produs WHERE Id = @Id", new { Id = id });
     }
 }
